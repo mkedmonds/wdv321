@@ -1,0 +1,70 @@
+INTRO PHP
+
+OOP - Object Oriented Programing
+MCV 
+    Model - data, database
+    View - HTML, CSS, Displayable Output
+    Controller - Business logic, "Code goes here"
+
+let lastName = "smith";
+
+Object - something you can use
+
+Property - describe something about the object
+
+class = definition of what an object will be
+    defines the properties and methods of an object
+
+Instantiation - make a new object aka "an instance"
+
+Email system - mail()
+    -recipients
+    -subject
+    -message
+    -from
+
+Stuff to consider
+    store?
+    if sent? 
+    was it read?
+
+SMTP - Simple Mail Transfer Protocol
+    part of the hosted server (you must make a email on your hosting server)
+
+DO THE CLASS PHP TUTORIAL LOCATED IN BLACKBOARD
+------------------------------------------------------------------------------------------------------------------------
+
+ADVANCED JAVASCRIPT
+
+Unit 5- Dynamic Form 
+
+display: inline, block. none
+
+.append()
+.remove()
+.html
+
+dropdownExample.html
+
+Stateless
+    no beginning
+    no End 
+    No memory of what you are/did/etc
+
+    Two Types of States 
+        Client Side
+            HTTP Cookies
+            Local Storage
+        Server Side
+            Database
+
+-------------------------------------------------------------------------------------------------------------------------
+
+WEB APPLICATIONS AND COMPONENTS
+
+Presentations for Social Media Links
+
+Began Unit 3 - Embedding Youtube
+    Jeff is recommending you make a YT account and video for demo use 
+    (but if you are able to you can try to find a yt vid)
+

@@ -1,0 +1,74 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+
+<title>Input Text Example</title>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<script>
+
+    $(document).ready(
+      
+     function(){
+  
+      /*  alert("JQuery working");
+  
+        $("form").css("background-color", "pink");
+  
+        $("p").css("font-size", "59px");
+  
+        $("[type=submit]").click(function(){
+  
+          alert("Clicked the button");
+  
+        });
+  
+      } TESTING FROM 8/27/19*/
+  
+      alert("JQuery Working");
+   
+      $("#button").click(function(e) {
+        //alert("Button work");
+
+        let inName = $("#inputName").val();
+
+        //alert(inName);
+
+        $("span").html(inName);
+      });
+
+      $("#button2").click(function(e) {
+        
+        $("span").html("");
+
+
+    });
+
+
+    });
+  
+  
+  </script>
+
+</head>
+
+
+<body>
+<p>WDV321 Advanced Javascript</p>
+<p>Input Processing </p>
+<form name="form1" method="post" action="">
+  <p>Name: 
+    <label for="inputName"></label>
+  <input type="text" name="inputName" id="inputName">
+  </p>
+  <p>
+    <input type="button" name="button" id="button" value="Submit">
+    <input type="reset" name="button2" id="button2" value="Reset">
+  </p>
+</form>
+<p>You Entered: <span></span> </p>
+<p>&nbsp;</p>
+</body>
+</html>

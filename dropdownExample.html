@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <script>    
+        
+        let cities = ["Ankeny", "Ames", "Altoona"];
+
+        $(document).ready(function() {
+
+            //alert("JQuery Working");
+
+            $("#cities").append(new Option("Ames", "Ames"));
+
+            for(var i=0; i<cities.length; i++){
+                $("#cities").append(new Option(cities[i], cities[i]));
+            }
+        });
+
+    </script>
+
+</head>
+<body>
+
+    <h1>WDV 321: Advance Javascript</h1>
+
+    <h2>Unit 5: Dynamic Form Content/Structure</h2>
+
+    <h3>Dynamic Drop-Down</h3>
+
+    <p>Dynamic Drop-Down List from an Array using a loop</p>
+
+    <p>
+
+        <label for="cities">Select A City</label>
+
+        <select id="cities">
+            <option value="">Please choose a city</option>
+
+
+    
+        </select>
+
+    </p>
+
+</body>
+</html>

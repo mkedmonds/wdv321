@@ -1,0 +1,37 @@
+if(formsubmitted)
+    validate input - Validation Functions
+    if(valid)
+        run game. check guess, display high/low/coreect
+    else
+        display error message
+
+
+validateGuess() {
+
+    return validForm
+    
+} validate by field
+
+validRequired() {
+
+    return validForm
+
+}validate by test
+
+
+function validateForm() {
+    validForm = true
+
+    inValue = input Value
+
+    if(inValue == "" || inValue.trim() == " " || inValue = null || inValue == undef )
+        validForm = false
+        display error message
+    else
+        if(not numeric)
+            display error message
+        else
+
+}
+
+none jquery uses javascript commands just the same

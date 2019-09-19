@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  
+    <script>
+
+        
+
+        $(document).ready(function() {
+           
+            //alert("Jquery working")
+
+            $("#submit").click(function(e) {
+                //alert("button works"); 
+                let inEmail = $("#inputEmail").val();
+
+                let inPhone = $("#inputPhone").val();
+
+                let inZip = $("#inputZip").val();
+
+                let inChars = $("#inputChars").val();
+
+                // alert(inEmail);
+
+                // alert("Email: " + emailIsValid(inEmail));
+
+                // alert("Zip Code: " + validateZipCode(inZip));
+
+                // alert("Phone: " + cphoneNumber(inPhone));
+
+                emailIsValid(inEmail);
+
+                validateZipCode(inZip);
+
+                phoneNumber(inPhone);
+
+                changeCharacters(inChars);
+
+
+                function emailIsValid(email) {
+                    var emailTest = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+                    if (emailTest.test(email)) {
+                        $("#resultEmail").html("");
+                        return true;
+                        
+                    } 
+                    else {
+                        $("#resultEmail").html("Invalid email. Please enter your email in the following format: example@example.example");
+                        return false;
+                    }
+                }
+
+                function validateZipCode(zipCode) {
+                    var zipTest = /(^\d{5}$)|(^\d{5}-\d{4}$)/;
+
+                    if (zipTest.test(zipCode)) {
+                        $("#resultZip").html("");
+                        return true;
+                        
+                    } else {
+                        $("#resultZip").html("Invalid Zip Code. Please enter your zip code in the following format: 55555");
+                        return false;
+                    }
+                }
+
+                function phoneNumber(inputPhone) {
+                    var phoneno = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
+                    if(inputPhone.match(phoneno)) {
+                        $("#resultPhone").html("");
+                        return true;
+                    }
+                    else {
+                        $("#resultPhone").html("Invalid phone number. Please enter you phone number in the following format 555 555 5555")
+                        return false;
+                    }
+                }
+
+                function changeCharacters(char) {
+                    var resultChars = char.replace(/['/<>]/g, '-');
+
+                    $("#resultChars").html(resultChars);
+                }
+
+
+            });
+
+            
+
+            $("#reset").click(function(e) {
+                //alert("button RESET works") 
+
+                $("#resultEmail").html("");
+                $("#resultZip").html("");
+                $("#resultPhone").html("");
+
+
+            });
+
+
+        });
+
+        function emailIsValid(email) {
+            return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+        }
+        
+    </script>
+
+</head>
+
+<body>
+
+
+<h1>WDV 321: Advanced Javascript</h1> 
+
+
+<h2>Regular Expressions Examples</h2>
+
+<p>
+<label for="email">Enter an email:</label>
+<input type="text" name="inputemail" id="inputEmail">
+<span id="resultEmail"></span>
+</p>
+
+<p>
+<label for="phoneNumber">Enter a phone number: </label>
+<input type="text" name="inputPhone" id="inputPhone">
+<span id="resultPhone"></span>
+</p>
+
+<p>
+<label for="zipCode">Enter a zip code</label>
+<input type="text" name="inputZip" id="inputZip">
+<span id="resultZip"></span>
+</p>
+
+<p>
+
+    <label for="specialCharacters">Enter the Characters ' / < > </label>
+    <input type="text" name="inputChars" id="inputChars">
+    <span id="resultChars"></span>
+
+</p>
+
+<p>
+    <input type="button" value="Submit" id="submit">
+    <input type="button" value="Reset" id="reset">
+</p>
+
+</body>
+</html>
