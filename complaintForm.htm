@@ -1,0 +1,197 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<title>WDV321 Advanced Javascript - Form Validation Project</title>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<link href="complaintFormTestPlan.txt">
+
+<style>
+
+	body {
+		background-color: #ff4da6;
+		font-weight: bold;
+
+	}
+
+label	{
+	width:150px;
+	display:inline-block;	
+}
+
+</style>
+
+<script>
+
+	$(document).ready(function() {
+	
+
+		//alert("JQUERY WORKING");
+
+		$("#button").click(function(e) {
+			let inName = $("#custName").val();
+			let inEmail = $("#custEmail").val();
+			let inPhone =  $("#custPhone").val();
+
+			//alert(inName + ", " + inEmail + ", " + inPhone);
+
+			validateName(inName);
+			validateEmail(inEmail);
+			validatePhoneNumber(inPhone);
+
+			function validateName(name) {
+
+				var nameTest = /[!@#$%^&*(),.?":{}|<>']/;
+				
+				if (name === "" || name.trim() === "" || name == null || name == undefined) {
+
+					//alert(name);
+					
+					//alert("Please enter a name");
+
+					$("#nameResult").html("Please enter a name");
+
+				} 
+				else {
+
+					//alert(name);
+
+					//alert("PASSED");
+
+					if (nameTest.test(name)) {
+						
+						//alert("Invalid character: " + name);
+
+						$("#nameResult").html("Invalid character: " + name);
+
+
+					} 
+					else {
+						//alert("PASSED: " + name);
+
+						$("#nameResult").html("");
+					}
+				}
+
+			}
+
+			function validateEmail(email) {
+				
+				var emailTest = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+                    if (emailTest.test(email)) {
+                        //alert("PASSED")
+
+						$("#emailResult").html("");
+                        return true;
+                        
+                    } 
+                    else {
+                        //alert("Invalid email. Please enter your email in the following format: example@example.example");
+
+						$("#emailResult").html("Invalid email. Please enter your email in the following format: example@example.example");
+                        return false;
+                    }
+    
+			}
+
+			function validatePhoneNumber(inputPhone) {
+                    var phoneno = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
+                    if(inputPhone.match(phoneno)) {
+                        $("#phoneResult").html("");
+                        return true;
+                    }
+                    else {
+                        $("#phoneResult").html("Invalid phone number. Please enter you phone number in the following format 555 555 5555")
+                        return false;
+                    }
+            }
+
+			$("#form1").submit(function(event) {
+				if(validatePhoneNumber(inPhone) === true){
+					alert("Form Submitted");
+				}
+				else{
+					//alert("Phoennumber is wrong")
+					event.preventDefault();
+				}
+			
+			});
+
+
+		});
+
+		var textArea = document.getElementById("custComplaint");
+		textArea.addEventListener(
+    		'keypress',
+    		function (e) {
+				if (e.keyCode == 60 || e.keyCode == 62 || e.keyCode == 39) {
+					e.preventDefault();
+				}
+    		}
+		);
+		
+
+	});
+
+</script>
+
+</head>
+
+
+<body>
+
+	<h2>WDV321 Advanced Javascript </h2>
+	<h3>Form Validation Project - Complaint Form</h3>
+	<form id="form1" name="form1" method="post" action="complaintSubmit.php">
+	  <p>Please enter the following information in order to process your concerns.</p>
+	  <p> 
+	    <label for="custName">Name:</label>
+		<input type="text" name="custName" id="custName" required/>
+		<span id="nameResult"></span>
+	  </p>
+	  <p>
+		<label for="custEmail">Email:</label>
+		<input type="text" name="custEmail" id="custEmail" required>
+		<span id="emailResult"></span>
+	  </p>
+	  <p>
+	    <label for="custPhone">Phone Number: </label>
+		<input type="text" name="custPhone" id="custPhone" />
+		<span id="phoneResult"></span>
+	  </p>
+	  <p>Please Select Product Group:</p>
+	  <p>
+	    <label>
+	      <input type="radio" name="custProducts" value="books" id="custProducts_0" required/>
+	      Books</label>
+	    <br />
+	    <label>
+	      <input type="radio" name="custProducts" value="movies" id="custProducts_1" />
+	      Movies</label>
+	    <br />
+	    <label>
+	      <input type="radio" name="custProducts" value="electronics" id="custProducts_2" />
+	      Consumer Electronics</label>
+	    <br />
+	    <label>
+	      <input type="radio" name="custProducts" value="computer" id="custProducts_3" />
+	      Computer</label>
+	    <br />
+	  </p>
+	  <p>Description of problem:	(Limit 120 characters)</p>
+	  <p>
+  <label for="custComplaint"></label>
+	    <textarea name="custComplaint" id="custComplaint" cols="45" rows="5" maxlength="120" required></textarea>
+      </p>
+	  <p>
+	    <input type="submit" name="button" id="button" value="File Complaint" />
+	    <input type="reset" name="button2" id="button2" value="Reset" />
+	  </p>
+</form>
+	<p>&nbsp;</p>
+</body>
+</html>
