@@ -7,6 +7,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
 <script type="text/javascript" src="dateFunctions.js"></script>
+<script src="validation.js"></script>
 
 	<style>
 
@@ -106,8 +107,6 @@
 
 			});
 
-
-
 			$("#guess").click(function(e) {
 
 				//alert("button works");
@@ -122,86 +121,10 @@
 
 				//Begin Validation and Hi-Low Game
 
-				if (inNumb === "" || inNumb.trim() === " " || inNumb == null || inNumb == undefined) {
-					//If the inputted number is nothing
-
-					alert("Please enter a number");
-						
-				} 
-				else {
-
-						//alert("PASSED")
-
-						//If inputted value is a string
-
-						if (isNaN(inNumb)) {
-
-							alert("Please enter a NUMBER");
-							
-						} 
-						
-						else {
-
-							//alert("PASSEDTWO");
-
-							//if the number is a decimal value
-
-							if (inNumb % 1 != 0) {
-
-								alert("Please enter a whole NUMBER");
-
-							} 
-							
-							else {
-
-								//alert("PASSEDTHREE")
-
-								//if input value is over selected value or under 0
-
-								if (inNumb > inNumberTwo || inNumb <= 0) {
-									alert("Please enter a NUMBER between 1 and " + inNumberTwo)
-								} 
-								
-								else {
-
-									//alert("PASSEDFOUR")
-
-									//Begin game if everything passed
-
-									if( inNumb == targetNumber )		//5. There is a problem with the if statement
-									{
-										//6. display CORRECT!!!	
-										//alert("CORRECT!")
-										$("#results").css("color", "green");
-										$("#results").html("CORRECT!");
-									}
-									else
-									{
-										if( inNumb < targetNumber)
-										{
-											//7. display HIGHER!
-											//alert("HIGHER!")
-											$("#results").css("color", "red");
-											$("#results").html("HIGHER!");	
-										}
-										else
-										{
-											//8. display LOWER
-											//alert("LOWER!")	
-											$("#results").css("color", "red");
-											$("#results").html("LOWER!");
-										}
-									}
-									
-									//end hiLowGame()
-								}
-
-							}
-						}
-				}
-
+				validateInputNumber(inNumb, inNumberTwo);
 
 			});
+
 
 			$("#showNumb").click(function(e) {
 
