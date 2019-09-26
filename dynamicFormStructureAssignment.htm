@@ -3,6 +3,63 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>WDV321 Advanced Javascript</title>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<script>
+
+  let complaintsArray = new Array("I don't like this product", "I'm having problems with understanding the process", "Service was terrible", "I hate everything");
+
+  let technicalArray = new Array("Computer won't start", "Phone is broken", "I forgot my password", "Television keeps playing Rick Astley");
+
+  let productArray = new Array("Computer", "Phone", "Website", "Tv");
+
+  // alert(complaintsArray);
+  // alert(TechnicalArray);
+  // alert(productArray);
+
+
+  $(document).ready(function() {
+
+    //alert("JQUERY WORKING");
+
+    $("#contactType").change(function(e) {
+      
+      let inContact = $("option:selected").val();
+
+      //alert(inContact);
+
+      $("#results").html("");
+
+      if (inContact == "C") {
+        for (let c = 0; c < complaintsArray.length; c++) {
+          $("#results").append("<input type='radio' name='contact' value='" + complaintsArray[c] + "'" + "/>" + complaintsArray[c]);
+          
+        }  
+      } 
+      else {
+        if (inContact == "T") {
+          for (let t = 0; t < technicalArray.length; t++) {
+            $("#results").append("<input type='radio' name='contact' value='" + technicalArray[t] + "'" + "/>" + technicalArray[t]);
+            
+          }
+        } 
+        else {
+          for (let p = 0; p < productArray.length; p++) {
+            $("#results").append("<input type='radio' name='contact' value='" + productArray[p] + "'" + "/>" + productArray[p]);
+            
+          }
+        }
+        
+      }
+
+    });
+    
+  });
+
+
+</script>
+
 </head>
 
 <body>
@@ -10,7 +67,7 @@
 <h2>Dynamic Form Structure - Assignment</h2>
 <p>Use this page as the basis for your assignment. Given the drop down list provided on this page please do the following things.</p>
 <p>
-  <label>Please Select your reason for contactin us.
+  <label>Please Select your reason for contacting us.
     <select name="contactType" id="contactType">
       <option value="C">Complaints</option>
       <option value="T">Technical Problems</option>
@@ -18,6 +75,11 @@
     </select>
   </label>
 </p>
+
+<p id="results">
+
+</p>
+
 <ol>
   <li>When  Complaints are selected please dynamically create and display a new drop down list that includes at least four options of your choice.</li>
   <li>When Technical Problems are selected please dynamically create and display at least four types of problems with an associated checkbox.</li>
